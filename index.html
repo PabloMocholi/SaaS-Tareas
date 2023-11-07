@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="ContenedorCentral">
+        <div class="ContenedorCentral-tareas">
+            TAREAS
+        </div>
+    
+        <div class="ContenedorCentral-stats">
+            <div>STATS</div>
+            <div>LOG</div>
+        </div>
+
+    </div>
+
+
+
+
+    <button class="u-fixed" id="boton">
+        Nueva Tarea
+    </button>
+
+
+  <div class="u-centrar">
+        <form id="form" class="Form isnt-shown" action="index.html" method="get">
+
+
+            <label for="">Título</label><br>
+            <input type="text" name="tit" id="tit">
+    
+            <br><br>
+    
+            <label for="">Descripcio</label><br>
+            <textarea rows="4" cols="50" name="description" form="form">
+                </textarea>
+    
+            <br><br>
+    
+            <label for="">Fecha de vencimiento</label><br>
+            <input type="date" name="date" id="date">
+    
+            <br><br>
+    
+            <label for="">Usuarios en el proyecto</label><br>
+                <div>
+                    <button>Pedro</button>
+                    <button>Sara</button>
+                    <button>María</button>
+                </div>
+               
+        
+                <button type="submit" onclick="cerrar()">Crear Tarea</button>
+            </form>
+        </div>
+  
+    
+
+</body>
+
+<script>
+    var boton = document.getElementById("boton");
+    var form = document.getElementById("form");
+
+    boton.addEventListener('click', () => {
+
+        form.classList.toggle("isnt-shown");
+
+    });
+
+    function cerrar() {
+        form.classList.add("isnt-shown");
+    }
+
+</script>
+
+</html>
