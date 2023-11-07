@@ -2,85 +2,165 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
     <title>Document</title>
 </head>
 
 <body>
-
-
+    <header>
+        <ul class="Navegador">
+            <li class="Navegador-links u-marginRight">
+                <a class="Navegador-links-link" href="index.html">Administrador de Tareas</a>
+            </li>
+            <li class="Navegador-links">
+                <a class="Navegador-links-link" href="">Lista de usuarios</a>
+            </li>
+        </ul>
+    </header>
+    <br />
     <div class="ContenedorCentral">
         <div class="ContenedorCentral-tareas">
-            TAREAS
+
+            <div class="ContenedorCentral-tareas-tarea">
+                
+            </div>
+            <div class="ContenedorCentral-tareas-tarea">
+                
+            </div>
+               <div class="ContenedorCentral-tareas-tarea">
+                
+            </div>
+            <div class="ContenedorCentral-tareas-tarea">
+                
+            </div>
+            <div class="ContenedorCentral-tareas-tarea">
+                
+            </div>
+            <div class="ContenedorCentral-tareas-tarea">
+                
+            </div>
+            <div class="ContenedorCentral-tareas-tarea">
+                
+            </div>   <div class="ContenedorCentral-tareas-tarea">
+                
+            </div>
+            
+        
+
+
         </div>
-    
+
         <div class="ContenedorCentral-stats">
             <div>STATS</div>
-            <div>LOG</div>
+            <div>
+                LOG
+                <div id="log"></div>
+            </div>
         </div>
-
     </div>
 
+    <button class="u-fixed" id="boton">Nueva Tarea</button>
 
-
-
-    <button class="u-fixed" id="boton">
-        Nueva Tarea
-    </button>
-
-
-  <div class="u-centrar">
+    <div class="u-centrar">
         <form id="form" class="Form isnt-shown" action="index.html" method="get">
+            <label for="">Título</label><br />
+            <input class="Form-input u-borderBlue" type="text" name="tit" id="tit" />
 
+            <br /><br />
 
-            <label for="">Título</label><br>
-            <input type="text" name="tit" id="tit">
-    
-            <br><br>
-    
-            <label for="">Descripcio</label><br>
-            <textarea rows="4" cols="50" name="description" form="form">
-                </textarea>
-    
-            <br><br>
-    
-            <label for="">Fecha de vencimiento</label><br>
-            <input type="date" name="date" id="date">
-    
-            <br><br>
-    
-            <label for="">Usuarios en el proyecto</label><br>
-                <div>
-                    <button>Pedro</button>
-                    <button>Sara</button>
-                    <button>María</button>
-                </div>
-               
-        
-                <button type="submit" onclick="cerrar()">Crear Tarea</button>
-            </form>
-        </div>
-  
-    
+            <label for="">Descripcio</label><br />
+            <textarea class="Form-input u-borderBlue" rows="4" cols="50" name="description" id="desc" form="form">
+        </textarea>
 
+            <br /><br />
+
+            <label for="">Fecha de vencimiento</label><br />
+            <input class="Form-input u-borderBlue" type="date" name="date" id="date" />
+
+            <br /><br />
+
+            <label for="cars" class="u-marginBottom">Creador de proyecto:</label>
+            <select id="creator" class="Form-input u-borderBlue">
+                <option value="Pedro">Pedro</option>
+                <option value="Sara">Sara</option>
+                <option value="María">María</option>
+            </select>
+
+            <br /><br />
+
+            <label class="u-marginBottom">Usuarios en el proyecto</label>
+            <div class="Form-buttons">
+                <button class="Form-buttons-button" type="button" id="user1" value="Pedro">
+                    Pedro
+                </button>
+                <button class="Form-buttons-button" type="button" id="user2" value="Sara">
+                    Sara
+                </button>
+                <button class="Form-buttons-button" type="button" id="user3" value="María">
+                    María
+                </button>
+            </div>
+
+            <button class="u-marginTop" type="submit" onclick="cerrar()">
+                Crear Tarea
+            </button>
+        </form>
+    </div>
 </body>
 
 <script>
     var boton = document.getElementById("boton");
     var form = document.getElementById("form");
+    var botonesUser = document.querySelectorAll(".Form-buttons-button");
 
-    boton.addEventListener('click', () => {
+    var vectorlog = [];
 
+    boton.addEventListener("click", () => {
         form.classList.toggle("isnt-shown");
+    });
 
+    botonesUser.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("is-active");
+        });
     });
 
     function cerrar() {
         form.classList.add("isnt-shown");
     }
 
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        var botonesActivos = [];
+
+        botonesUser.forEach((btn) => {
+            if (btn.classList.contains("is-active")) {
+                botonesActivos.push(btn.value);
+            }
+        });
+
+        console.log(botonesActivos);
+
+        let tit = document.getElementById("tit").value;
+        let desc = document.getElementById("desc").value;
+        let date = document.getElementById("date").value;
+        let creator = document.getElementById("creator").value;
+
+        vectorlog.push(
+            creator +
+            " ha creado la tarea " +
+            tit +
+            " con fecha " +
+            date +
+            " para " +
+            botonesActivos +
+            "<br/>"
+        );
+
+        document.getElementById("log").innerHTML = vectorlog;
+    });
 </script>
 
 </html>
