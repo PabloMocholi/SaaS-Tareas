@@ -5,8 +5,9 @@ body{
 }
 
 .Navegador {
-    margin-top: 30px;
+    margin: 0;
     padding: 0;
+    padding-top: 30px;
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -36,16 +37,37 @@ body{
 }
 
 .ContenedorCentral-tareas{
-    border: 1px solid black;
     margin: 30px;
     display: grid;
     grid-template-rows: repeat(4,1fr);
     overflow: auto;
+    height: 90%;
 
+}
+
+.ContenedorCentral-tareas-btns{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ContenedorCentral-tareas-btns-btn{
+    width: 30%;
+    padding: 10px;
+    border-radius:10px ;
+    border: 1px solid darkblue;
+    background-color: white;
+    color: darkblue;
 }
 
 .ContenedorCentral-tareas-tarea{
     border: 1px solid darkblue;
+    margin: 30px;
+    height: 200px;
+    
+}
+
+.ContenedorCentral-tareas-tarea--red{
+    border: 1px solid red;
     margin: 30px;
     height: 200px;
     

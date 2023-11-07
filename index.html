@@ -19,35 +19,48 @@
             </li>
         </ul>
     </header>
-    <br />
+
     <div class="ContenedorCentral">
         <div class="ContenedorCentral-tareas">
 
-            <div class="ContenedorCentral-tareas-tarea">
-                
+
+            <div class="ContenedorCentral-tareas-btns">
+                <button class="ContenedorCentral-tareas-btns-btn is-active" id="btn_completas">Completas</button>
+                <button class="ContenedorCentral-tareas-btns-btn" id="btn_pendientes">Pendientes</button>
             </div>
-            <div class="ContenedorCentral-tareas-tarea">
-                
+     
+
+            <div id="completas">
+
+                <div class="ContenedorCentral-tareas-tarea">
+
+                </div>
+                <div class="ContenedorCentral-tareas-tarea">
+
+                </div>
+                <div class="ContenedorCentral-tareas-tarea">
+
+                </div>
+                <div class="ContenedorCentral-tareas-tarea">
+
+                </div>
             </div>
-               <div class="ContenedorCentral-tareas-tarea">
-                
+
+            <div id="pendientes" class="isnt-shown">
+
+                <div class="ContenedorCentral-tareas-tarea--red">
+
+                </div>
+                <div class="ContenedorCentral-tareas-tarea--red">
+
+                </div>
+                <div class="ContenedorCentral-tareas-tarea--red">
+
+                </div>
+                <div class="ContenedorCentral-tareas-tarea--red">
+
+                </div>
             </div>
-            <div class="ContenedorCentral-tareas-tarea">
-                
-            </div>
-            <div class="ContenedorCentral-tareas-tarea">
-                
-            </div>
-            <div class="ContenedorCentral-tareas-tarea">
-                
-            </div>
-            <div class="ContenedorCentral-tareas-tarea">
-                
-            </div>   <div class="ContenedorCentral-tareas-tarea">
-                
-            </div>
-            
-        
 
 
         </div>
@@ -115,10 +128,32 @@
     var form = document.getElementById("form");
     var botonesUser = document.querySelectorAll(".Form-buttons-button");
 
+    var botonCompletas = document.getElementById("btn_completas");
+    var botonPendientes = document.getElementById("btn_pendientes");
+
+    var divCompletas = document.getElementById("completas");
+    var divPendientes = document.getElementById("pendientes");
+
     var vectorlog = [];
 
     boton.addEventListener("click", () => {
         form.classList.toggle("isnt-shown");
+    });
+
+    botonCompletas.addEventListener("click", () => {
+        divCompletas.classList.remove("isnt-shown");
+        botonCompletas.classList.add("is-active");
+        divPendientes.classList.add("isnt-shown");
+        botonPendientes.classList.remove("is-active");
+
+    });
+
+    botonPendientes.addEventListener("click", () => {
+        divCompletas.classList.add("isnt-shown");
+        botonCompletas.classList.remove("is-active");
+        divPendientes.classList.remove("isnt-shown");
+        botonPendientes.classList.add("is-active");
+
     });
 
     botonesUser.forEach((btn) => {
