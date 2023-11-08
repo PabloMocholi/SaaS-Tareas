@@ -5,14 +5,13 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: "Fuente Sans Pro", sans-serif;
+    font-family: "Manrope", sans-serif;
     background: linear-gradient(to bottom), 
     #03045e, #2667FF, #3B28CC;
     --color-darkblue: #03256c;
     --color-black: #00171f; 
     --color-primary: #2667FF; 
     --color-secondary: #3F8EFC;
-    --color-tertiary: #192bc2;
     --color-grey: #edf2fb; 
     --color-light: #e2eafc;
     --color-white: #ffffff
@@ -42,7 +41,7 @@ label {
     font-size: 2rem;
     justify-content: center;
     display: flex;
-    margin: 50px;
+    margin: 60px;
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease-in-out;
@@ -69,7 +68,7 @@ button {
     justify-content:center; 
     display: block;
     color: var(--color-white);
-    background: var(--color-primary);
+    background: var(--color-secondary);
     font-size: bold;
     margin-top: 20px;
     outline: none;
@@ -81,7 +80,7 @@ button {
 }
 
 button:hover {
-    background: var(--color-tertiary);
+    background: var(--color-primary);
 }
 .login {
     height: 460px;
@@ -93,7 +92,7 @@ button:hover {
 .login label {
     color: var(--color-darkblue);
     transform: scale(.6s);
-    font-size: 1.5rem;
+    font-size: large;
 
 
 }
