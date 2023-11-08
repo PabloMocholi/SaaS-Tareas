@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: "Fuente Sans Pro", sans-serif;
+    font-family: "Manrope", sans-serif;
     background: linear-gradient(to bottom), 
     #03045e, #2667FF, #3B28CC;
     --color-darkblue: #03256c;
@@ -19,13 +19,21 @@
 }
 
 .main {
-    width: 350px;
+    width: 400px;
     height: 500px;
     background: linear-gradient(to bottom), 
     var(--color-black, --color-darkblue, --color-light);
     overflow: hidden;
     border-radius: 26px;
     box-shadow: 5px 20px 50px var(--color-secondary);
+}
+
+#logo {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 5px;
+margin-top: 5px;
 }
 
 #check {
@@ -42,7 +50,7 @@ label {
     font-size: 2rem;
     justify-content: center;
     display: flex;
-    margin: 50px;
+    margin: 40px;
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease-in-out;
@@ -71,7 +79,7 @@ button {
     color: var(--color-white);
     background: var(--color-primary);
     font-size: bold;
-    margin-top: 20px;
+    margin-top: 30px;
     outline: none;
     border: none;
     border-radius: 26px;
@@ -84,7 +92,7 @@ button:hover {
     background: var(--color-tertiary);
 }
 .login {
-    height: 460px;
+    height: 700px;
     background: var(--color-grey);
     border-radius: 40% / 20%;
     transform: translateY(-180px);
@@ -108,10 +116,32 @@ button:hover {
     transform: scale(.6s);
 }
 
-/*
-@media "media type" and (condition breakproint) {
-
-}
-
-*/
-
+        /* Responsive website for laptops */
+        @media screen and (max-width:1200px) {
+            .container {
+                width: 96%;
+            }
+        
+            main .container {
+                grid-template-columns: 5rem auto 30vw;
+                gap: 1rem;
+            }
+        
+            .left {
+                width: 5rem;
+                z-index: 5;
+            }
+        
+            .main .container .left .profile {
+                display: none;
+            }
+        
+            .sidebar h3 {
+                display: none;
+            }
+        
+            .left .btn {
+                display: none;
+            }
+        }
+        
