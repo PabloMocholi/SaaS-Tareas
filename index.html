@@ -5,13 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Manrope&display=swap" rel="stylesheet"> 
     <title>Document</title>
 </head>
 
 <body>
     <header>
         <ul class="Navegador">
-            <li class="Navegador-links u-marginRight">
+            <li class="Navegador-links">
                 <a class="Navegador-links-link" href="index.html">Administrador de Tareas</a>
             </li>
             <li class="Navegador-links">
@@ -23,17 +26,41 @@
     <div class="ContenedorCentral">
         <div class="ContenedorCentral-tareas">
 
-
             <div class="ContenedorCentral-tareas-btns">
                 <button class="ContenedorCentral-tareas-btns-btn is-active" id="btn_completas">Completas</button>
                 <button class="ContenedorCentral-tareas-btns-btn" id="btn_pendientes">Pendientes</button>
             </div>
-     
 
             <div id="completas">
 
                 <div class="ContenedorCentral-tareas-tarea">
+                        <img src="./images/brand.jpg" class="ContenedorCentral-tareas-tarea-img" alt="brand">
+                        <div class="ContenedorCentral-tareas-tarea-contenido">
+                                <div class="ContenedorCentral-tareas-tarea-contenido-cuadroSuperior">
+                                    <h1 class="H1Tarjeta">Título Tarea</h1>
+                                    <p class="PTarjeta">Lorem ipsum dolor sit amet consectetur 
+                                        adipisicing elit. Accusantium, natus aspernatur. 
+                                        Minus, a eius eaque reprehenderit sapiente dolore 
+                                        ullam earum vitae? Consequatur veritatis impedit
+                                        temporibus perspiciatis, autem sint delectus 
+                                        molestiae.
+                                    </p>
+                                </div>
+                                <div class="ContenedorCentral-tareas-tarea-contenido-cuadroInferior">
 
+                                    <div class="ContenedorCentral-imges">
+                                        <img class="ContenedorCentral-imges-img" src="./images/300-1 copy.jpg" alt="user1">
+                                        <img class="ContenedorCentral-imges-img" src="./images/300-2 copy.jpg" alt="user1">
+                                        <img class="ContenedorCentral-imges-img" src="./images/300-6 copy.jpg" alt="user1">
+
+                                    </div>
+                                    <div>
+
+
+                                    </div>
+                                </div>
+                                
+                        </div>
                 </div>
                 <div class="ContenedorCentral-tareas-tarea">
 
@@ -67,9 +94,9 @@
 
         <div class="ContenedorCentral-stats">
             <div>STATS</div>
-            <div>
-                LOG
-                <div id="log"></div>
+            <div class="ContenedorCentral-stats-log">
+
+                <div class="ContenedorCentral-stats-log-pantalla" id="log"></div>
             </div>
         </div>
     </div>
@@ -83,7 +110,7 @@
 
             <br /><br />
 
-            <label for="">Descripcio</label><br />
+            <label for="">Descripción</label><br />
             <textarea class="Form-input u-borderBlue" rows="4" cols="50" name="description" id="desc" form="form">
         </textarea>
 
@@ -94,7 +121,7 @@
 
             <br /><br />
 
-            <label for="cars" class="u-marginBottom">Creador de proyecto:</label>
+            <label for="cars" class=" u-marginTop15">Creador de proyecto:</label>
             <select id="creator" class="Form-input u-borderBlue">
                 <option value="Pedro">Pedro</option>
                 <option value="Sara">Sara</option>
@@ -103,7 +130,7 @@
 
             <br /><br />
 
-            <label class="u-marginBottom">Usuarios en el proyecto</label>
+            <label class="u-marginTop15">Usuarios en el proyecto</label>
             <div class="Form-buttons">
                 <button class="Form-buttons-button" type="button" id="user1" value="Pedro">
                     Pedro
@@ -116,7 +143,7 @@
                 </button>
             </div>
 
-            <button class="u-marginTop" type="submit" onclick="cerrar()">
+            <button class="u-marginTop ContenedorCentral-tareas-btns-btn u-width100 u-backBlue" type="submit" onclick="cerrar()">
                 Crear Tarea
             </button>
         </form>
@@ -124,6 +151,10 @@
 </body>
 
 <script>
+
+    /*
+        Variables
+    */
     var boton = document.getElementById("boton");
     var form = document.getElementById("form");
     var botonesUser = document.querySelectorAll(".Form-buttons-button");
@@ -136,6 +167,9 @@
 
     var vectorlog = [];
 
+    /*
+        Funciones
+    */
     boton.addEventListener("click", () => {
         form.classList.toggle("isnt-shown");
     });
@@ -166,6 +200,9 @@
         form.classList.add("isnt-shown");
     }
 
+    /*
+        YTratamiento de datos del form
+    */
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         var botonesActivos = [];
@@ -176,25 +213,35 @@
             }
         });
 
-        console.log(botonesActivos);
+        //console.log(botonesActivos);
 
         let tit = document.getElementById("tit").value;
         let desc = document.getElementById("desc").value;
         let date = document.getElementById("date").value;
         let creator = document.getElementById("creator").value;
 
-        vectorlog.push(
-            creator +
-            " ha creado la tarea " +
-            tit +
-            " con fecha " +
-            date +
-            " para " +
-            botonesActivos +
-            "<br/>"
-        );
+        vectorlog.push(`<div class="LogText--date">
+                            ${date}
+                        </div>
+                  
+                        <div class="LogText">
+                            ${creator} ha creado la tarea: "${tit}" para ${botonesActivos}
+                        </div> <hr>`);
 
-        document.getElementById("log").innerHTML = vectorlog;
+        document.getElementById("log").innerHTML = vectorlog.join('');
+
+        //Reiniciamos el form
+        document.getElementById("tit").value = '';
+        document.getElementById("desc").value = '';
+        document.getElementById("date").value = '';
+        document.getElementById("creator").value = '';
+
+        botonesUser.forEach((btn) => {
+
+            btn.classList.remove("is-active");
+
+        });
+
     });
 </script>
 
