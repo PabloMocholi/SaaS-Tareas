@@ -206,7 +206,7 @@ header {
 .ContenedorCentral-stats-cuadroSuperior {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    height: 50%;
+    height: 90%;
     margin-right: 1 0px;
 }
 
@@ -230,6 +230,13 @@ header {
     justify-content: center;
 }
 
+.ContenedorCentral-stats-cuadroSuperior-prios{
+    display: flex; justify-content: center;
+}
+
+.ContenedorCentral-stats-cuadroSuperior-prios-prio{
+    width: 30%;height: 100%;
+}
 
 
 .ContenedorCentral-stats-log {
