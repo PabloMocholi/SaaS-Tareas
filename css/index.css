@@ -273,6 +273,7 @@ header {
     /*border: 1px solid var(--color-light);
     background-color:var( --color-tertiary);*/
     box-shadow: -2px -2px 10px var(--color-darkblue);
+    background-color: white;
 }
 
 hr {
