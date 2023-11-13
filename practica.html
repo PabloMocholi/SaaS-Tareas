@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Balls</title>
 
     <style>
         .button {
@@ -17,25 +17,57 @@
             animation-duration: 3s;
         }
 
-        @keyframes moverPurple {
-            0% {
-                background: pink;
-                left: 0px;
-                top: 0px;
+        .outer {
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: grey;
+            width: 100%;
+            height: 300px;
+        }
+        .ball {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            position: absolute;
+            border-radius: 50%;
+            left: -30px;
+            top: 0;
+            animation: move 4s linear infinite;
+            /*
+            animation-name: move;
+            animation-duration: 3s;
+            animation-direction: linear ;
+            animation: infinite;
+            */
+        }
+
+        @keyframes move {
+            16%, 48%, 78% {
+                top: 300px;
+                animation-timing-function: ease-out;
             }
-            25% {
-                background: blue;
-                left: 200px;
-                top: 0px;
+            32%{
+                top: 50px;
+                animation-timing-function: ease-in;
+            }
+            62%{
+                top: 150px ;
+                animation-timing-function: ease-in;
+            }
+            100% {
+                top: 270px;
+                left: 100px;
+                animation-timing-function: ease-out;
             }
         }
     </style>
 </head>
 <body>
-    <div class="button">
-
-    </div>
-
-    
+    <div class="outer">
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div> 
 </body>
 </html>
