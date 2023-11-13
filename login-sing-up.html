@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,12 @@
     <link rel="stylesheet" href="css/login-sign-up.css">
 
 </head>
+
 <body>
 
     <div class="main">
-        <div id="logo"> 
-            <img src="imagenes/nexus-whitelogo.png" alt="logo" height="150px">
+        <div id="logo">
+            <img src="imagenes/nexus-logo-transparent.png" alt="logo" height="40px">
         </div>
         <input type="checkbox" id="check" aria-hidden="true">
         <div class="signup">
@@ -22,33 +24,36 @@
                 <label for="check" aria-hidden="true">
                     Registro
                 </label>
-                <input type="text" name="text"
-                placeholder="Usuario" required>
-                <input type="email" name="email"
-                placeholder="Correo" required>
-                <input type="password" name="password"
-                placeholder="Contraseña" required>
-                <button>Registro</button>
+                <input type="text" name="text" placeholder="Usuario" required>
+                <input type="email" name="email" placeholder="Correo" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <div class="agree">
+                    <label for="terms-checkbox">
+                        <input type="checkbox" id="terms-checkbox" required>
+                        <span>He leído los <a href="terms-nexus.html" target="_blank">Términos y Condiciones</a></span>
+                    </label>
+                </div>
+                <a href="panel-nexus.html"><button class="button">Crear perfil</button>
+                </a>
             </form>
 
         </div>
 
         <div class="login">
-            <form action="">
+            <form action="POST">
                 <label for="check" aria-hidden="true">
+                    <br>
                     Inicio de sesión
+                    <br>
                 </label>
-                <input type="text" name="text"
-                placeholder="Usuario" required>
-                <input type="email" name="email"
-                placeholder="Correo" required>
-                <input type="password" name="password"
-                placeholder="Contraseña" required>
-                <button>Inicio de sesión</button>
+                <input type="text" name="text" placeholder="Usuario" required>
+                <input type="email" name="email" placeholder="Correo" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <a href="panel-nexus.html"><button class="button">Inicio de sesión</button>
+                </a>
             </form>
-
         </div>
-         </div>
-        </div>
+    </div>
 </body>
+
 </html>

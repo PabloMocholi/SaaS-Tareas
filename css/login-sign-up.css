@@ -6,34 +6,45 @@
     align-items: center;
     min-height: 100vh;
     font-family: "Manrope", sans-serif;
-    background: linear-gradient(to bottom), 
-    #03045e, #2667FF, #3B28CC;
+    background: linear-gradient(#03045e, #2667FF, #3B28CC);
     --color-darkblue: #03256c;
-    --color-black: #00171f; 
-    --color-primary: #2667FF; 
+    --color-black: #00171f;
+    --color-primary: #2667FF;
     --color-secondary: #3F8EFC;
     --color-tertiary: #192bc2;
-    --color-grey: #edf2fb; 
+    --color-grey: #edf2fb;
     --color-light: #e2eafc;
     --color-white: #ffffff
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+}
+
 .main {
-    width: 400px;
-    height: 500px;
-    background: linear-gradient(to bottom), 
-    var(--color-black, --color-darkblue, --color-light);
+    width: 370px;
+    height: 600px;
+    background: linear-gradient(var(--color-white), #ADD7F6, var(--color-grey));
     overflow: hidden;
     border-radius: 26px;
-    box-shadow: 5px 20px 50px var(--color-secondary);
+    box-shadow: 5px 20px 50px var(--color-darkblue);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #logo {
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 5px;
-margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 30px;
 }
 
 #check {
@@ -41,16 +52,17 @@ margin-top: 5px;
 }
 
 .signup {
-    position:relative; 
+    position: relative;
     width: 100%;
     height: 100%;
 }
+
 label {
     color: var(--color-primary);
     font-size: 2rem;
     justify-content: center;
     display: flex;
-    margin: 40px;
+    margin: 10px;
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease-in-out;
@@ -62,86 +74,91 @@ input {
     height: 20px;
     background: var(--color-grey);
     justify-content: center;
-    display:flex;
+    display: flex;
     margin: 20px auto;
     padding: 10px;
     border: none;
-    outline:none;
+    outline: none;
     border-radius: 26px
 }
 
+.agree {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 15px;
+    font-size: .9rem;
+    color: #ffff;
+}
+
+.agree label {
+    display: flex;
+    align-items: center;
+    color: #00171f;
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+.agree label input[type="terms-checkbox"] {
+    margin-right: 6px;
+    accent-color: var(--color-primary);
+}
+
+.agree label a {
+    color: #2667FF;
+    text-decoration: none;
+}
+
+.agree label a:hover {
+    text-decoration: underline;
+}
+
 button {
-    width: 80px;
-    height: 40px;
-    margin: 10px auto; 
-    justify-content:center; 
+    width: 100px;
+    height: 50px;
+    margin: 10px auto;
+    justify-content: center;
     display: block;
     color: var(--color-white);
-    background: var(--color-primary);
+    background: var(--color-tertiary);
     font-size: bold;
-    margin-top: 30px;
+    margin-top: 20px;
     outline: none;
     border: none;
     border-radius: 26px;
     transition: .2s ease-in-out;
     cursor: pointer;
-    
+
 }
 
 button:hover {
-    background: var(--color-tertiary);
+    background: var(--color-darkblue);
 }
+
 .login {
-    height: 700px;
-    background: var(--color-grey);
-    border-radius: 40% / 20%;
+    height: 600px;
+    background: linear-gradient(#5c677d, var(--color-secondary), var(--color-darkblue));
+    border-radius: 50% / 20%;
     transform: translateY(-180px);
     transition: .8s ease-in-out;
+
 }
+
 .login label {
-    color: var(--color-darkblue);
+    color: var(--color-white);
     transform: scale(.6s);
     font-size: 1.5rem;
-
+    margin-bottom: 40px;
 
 }
-#check:checked ~ .login {
-    transform:translateY(-500px)
+
+#check:checked~.login {
+    transform: translateY(-610px)
 }
 
-#check:checked ~ .login label {
+#check:checked~.login label {
     transform: scale(1);
 }
-#check:checked ~ .signup label {
+
+#check:checked~.signup label {
     transform: scale(.6s);
 }
-
-        /* Responsive website for laptops */
-        @media screen and (max-width:1200px) {
-            .container {
-                width: 96%;
-            }
-        
-            main .container {
-                grid-template-columns: 5rem auto 30vw;
-                gap: 1rem;
-            }
-        
-            .left {
-                width: 5rem;
-                z-index: 5;
-            }
-        
-            .main .container .left .profile {
-                display: none;
-            }
-        
-            .sidebar h3 {
-                display: none;
-            }
-        
-            .left .btn {
-                display: none;
-            }
-        }
-        
